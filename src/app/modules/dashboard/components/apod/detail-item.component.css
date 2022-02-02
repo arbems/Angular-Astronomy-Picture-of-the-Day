@@ -1,0 +1,8 @@
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+.detail-container {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}

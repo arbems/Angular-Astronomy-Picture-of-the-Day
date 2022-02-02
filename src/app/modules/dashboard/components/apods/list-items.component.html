@@ -1,0 +1,28 @@
+<div class="bounds">
+
+	<div class="content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center">
+
+		<div *ngFor="let apod of apods$ | async" fxFlex="33.333333" fxFlex.xs="100" class="item">
+
+            <a [routerLink]="['/dashboard/apod', apod.date]" class="link">
+                <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{apod.title}}</mat-card-title>
+                    <mat-card-subtitle>{{apod.date | date}}</mat-card-subtitle>
+                </mat-card-header>
+                
+                <img *ngIf="apod.media_type === 'image'; else elseVideo" mat-card-image [src]="apod.url" alt="{{apod.url}}">
+                <ng-template #elseVideo>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" [src]="apod.url | safe" allowfullscreen></iframe>
+                    </div>
+                </ng-template>
+
+                </mat-card>
+            </a>
+
+		</div>
+
+	</div>
+
+</div>

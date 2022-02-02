@@ -1,0 +1,27 @@
+<div class="detail-container">
+  <ng-container *ngIf="apod$ | async as apod">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{apod.title}}</mat-card-title>
+            <mat-card-subtitle>{{apod.date}}</mat-card-subtitle>
+          </mat-card-header>
+          
+          <img *ngIf="apod.media_type === 'image'; else elseVideo" mat-card-image [src]="apod.url" alt="{{apod.url}}">
+          <ng-template #elseVideo>
+              <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" [src]="apod.url | safe" allowfullscreen></iframe>
+              </div>
+          </ng-template>
+
+          <mat-card-content>
+            <p>
+              {{apod.explanation}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="gotoApods(apod)">BACK</button>
+          </mat-card-actions>
+        </mat-card>
+        
+  </ng-container>
+</div>
