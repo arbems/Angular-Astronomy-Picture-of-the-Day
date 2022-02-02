@@ -17,7 +17,8 @@ export class ListItemsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.apods$ = this.apodService.getApods();
+    //this.apods$ = this.apodService.getApods();
+    this.apods$ = this.apodService.apods;
   }
 
 }

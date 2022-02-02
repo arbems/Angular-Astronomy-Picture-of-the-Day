@@ -7,7 +7,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from '../../core/core.module';
 
-import { DashboardViewComponent } from './pages/dashboard-view.component';
+import { DashboardComponent } from './pages/dashboard.component';
 import { ListItemsComponent } from './components/apods/list-items.component';
 import { DetailItemComponent } from './components/apod/detail-item.component';
 
@@ -17,7 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    DashboardViewComponent,
+    DashboardComponent,
     ListItemsComponent,
     DetailItemComponent
   ],

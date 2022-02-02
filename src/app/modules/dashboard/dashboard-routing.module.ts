@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardViewComponent } from './pages/dashboard-view.component';
+import { DashboardComponent } from './pages/dashboard.component';
 import { ListItemsComponent } from './components/apods/list-items.component';
 import { DetailItemComponent } from './components/apod/detail-item.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardViewComponent,
+    component: DashboardComponent,
     children: [
       {
         path: '',

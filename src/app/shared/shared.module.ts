@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SafePipe } from './pipes/text-filter/safe.pipe';
+import { SafePipe } from './pipes/safe.pipe';
+
 
 @NgModule({
   declarations: [
