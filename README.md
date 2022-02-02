@@ -2,8 +2,10 @@
 
 Este proyecto proporciona una prueba práctica Frontend en Angular.
 
-## Tecnologías
-1. [Angular 13](https://angular.io/)
-2. [Angular Material](https://material.angular.io/)
-4. [rxjs](https://rxjs.dev/)
-5. [cypress](https://github.com/cypress-io/cypress)
+## Usando
+1. Enrutamiento y navegación
+2. Cliente HTTP
+4. Animaciones
+5. Programación Reactiva con RxJs
+6. Angular Material
+7. Pipes personalizados

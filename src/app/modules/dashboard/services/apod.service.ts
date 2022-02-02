@@ -14,25 +14,23 @@ export class ApodService {
 
   private baseUrl = environment.baseUrl;
   private apiKey = environment.API_KEY;
-  private start_date = '2020-09-10';
-  private end_date = '2020-09-15';
   private cache$!: Observable<Apod[]>;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getApod(date: string | Date) {
-    return this.apods.pipe(
+  getApod(date: string) {
+    return this.apods(date, date).pipe(
       map((apods: Apod[]) => apods.find(apod => apod.date === date)!)
     );
   }
 
-  getApods(): Observable<Apod[]> {
+  getApods(start_date: string, end_date: string): Observable<Apod[]> {
     const params = new HttpParams()
           .set('api_key', this.apiKey)
-          .set('start_date', this.start_date)
-          .set('end_date', this.end_date);
+          .set('start_date', start_date)
+          .set('end_date', end_date);
 
     const url = `${this.baseUrl}/planetary/apod`;
 
@@ -41,9 +39,9 @@ export class ApodService {
         )
   }
 
-  get apods() {
+  apods(start_date: string, end_date: string) {
     if (!this.cache$) {
-      this.cache$ = this.getApods().pipe(
+      this.cache$ = this.getApods(start_date, end_date).pipe(
         shareReplay(CACHE_SIZE)
       );
     }
