@@ -5,7 +5,7 @@
             <mat-card-title>{{apod.title}}</mat-card-title>
             <mat-card-subtitle>{{apod.date}}</mat-card-subtitle>
           </mat-card-header>
-          
+
           <img *ngIf="apod.media_type === 'image'; else elseVideo" mat-card-image [src]="apod.url" alt="{{apod.url}}">
           <ng-template #elseVideo>
               <div class="embed-responsive embed-responsive-16by9">
@@ -22,6 +22,6 @@
             <button mat-button (click)="gotoApods(apod)">BACK</button>
           </mat-card-actions>
         </mat-card>
-        
+
   </ng-container>
 </div>

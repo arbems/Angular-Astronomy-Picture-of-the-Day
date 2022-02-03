@@ -13,7 +13,7 @@ export class ListItemsComponent implements OnInit {
 
   apods$!: Observable<Apod[]>;
   actual = new Date();
-  end_date = formatDate(this.actual.toLocaleDateString(), 'yyyy-MM-dd', 'en-US');
+  end_date = formatDate(this.actual.setDate(this.actual.getDate()), 'yyyy-MM-dd', 'en-US');
   start_date = formatDate(this.actual.setDate(this.actual.getDate() - 5), 'yyyy-MM-dd', 'en-US');
 
   constructor(
