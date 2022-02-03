@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Apod } from 'src/app/core/models/apod.model';
 import { ApodService } from '../../services/apod.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-list-items',
@@ -13,8 +14,9 @@ export class ListItemsComponent implements OnInit {
 
   apods$!: Observable<Apod[]>;
   actual = new Date();
-  end_date = formatDate(this.actual.setDate(this.actual.getDate()), 'yyyy-MM-dd', 'en-US');
-  start_date = formatDate(this.actual.setDate(this.actual.getDate() - 5), 'yyyy-MM-dd', 'en-US');
+  now = moment();
+  end_date = (this.now.format('YYYY-MM-DD'));
+  start_date = (this.now.subtract(5, 'days').format('YYYY-MM-DD'));
 
   constructor(
     private apodService: ApodService
